@@ -9,43 +9,46 @@
       margin: 0;
       font-family: Arial, sans-serif;
       text-align: center;
-      color: white; /* default text to white */
+      color: white;
       background-image: url('https://wallpapers.com/images/high/boundary-imam-hossain-shrine-karbala-7o7qypdtvdx1b37w.jpg');
-      background-size: cover;
-      background-position: center;
+      background-size: cover;               /* makes the image cover always */
+      background-position: center center;    /* centers image on all screens */
       background-repeat: no-repeat;
+      background-attachment: fixed;          /* parallax effect on desktop */
       position: relative;
+      min-height: 100vh;                     /* always full screen height */
     }
 
+    /* Dark overlay for readability */
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.35); /* slight dark tint for better text visibility */
+      background: rgba(0,0,0,0.45);  /* darker overlay = better visibility */
       z-index: 0;
     }
 
     .overlay {
       position: relative;
       z-index: 1;
-      padding: 60px 20px;
-      margin-top: 100px;
+      padding: 40px 20px;
+      margin-top: 80px;
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 40px;
       font-weight: bold;
       color: white;
       text-shadow: 2px 2px 6px black;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     h2 {
-      font-size: 22px;
+      font-size: 20px;
       color: white;
-      text-shadow: 2px 2px 6px black;
-      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px black;
+      margin-bottom: 25px;
     }
 
     .coming {
@@ -54,25 +57,20 @@
       padding: 10px 25px;
       border-radius: 8px;
       color: white;
-      font-size: 22px;
-      margin-bottom: 40px;
+      font-size: 20px;
+      margin-bottom: 30px;
       text-shadow: 1px 1px 4px black;
     }
 
     .facilities {
       text-align: left;
-      max-width: 400px;
-      margin: 30px auto;
-      background: rgba(0,0,0,0.55);
+      max-width: 420px;
+      margin: 20px auto;
+      background: rgba(0,0,0,0.5);
       padding: 20px;
       border-radius: 12px;
       color: white;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    .facilities h3 {
-      margin-top: 0;
-      text-shadow: 1px 1px 4px black;
     }
 
     .facilities ul {
@@ -83,6 +81,7 @@
       margin: 8px 0;
       padding-left: 20px;
       position: relative;
+      font-size: 16px;
       text-shadow: 1px 1px 4px black;
     }
     .facilities ul li::before {
@@ -90,12 +89,6 @@
       position: absolute;
       left: 0;
       color: #00ffae;
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 16px;
-      text-shadow: 1px 1px 4px black;
     }
 
     .price-boxes {
@@ -111,8 +104,8 @@
       color: white;
       padding: 20px 30px;
       border-radius: 10px;
-      font-size: 24px;
-      min-width: 180px;
+      font-size: 22px;
+      min-width: 160px;
       text-shadow: 1px 1px 4px black;
     }
 
@@ -125,12 +118,72 @@
       font-size: 14px;
       margin-bottom: 8px;
     }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 16px;
+      text-shadow: 1px 1px 4px black;
+    }
+
+    /* ===================== MOBILE RESPONSIVE FIXES ===================== */
+
+    @media (max-width: 768px) {
+
+      body {
+        background-attachment: scroll; /* fix for mobile zoom issue */
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      .coming {
+        font-size: 18px;
+        padding: 8px 20px;
+      }
+
+      .price-box {
+        font-size: 20px;
+        padding: 15px 20px;
+        min-width: 140px;
+      }
+
+      .overlay {
+        margin-top: 40px; /* moves content lower on mobile */
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      h1 {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+
+      .overlay {
+        margin-top: 30px;
+      }
+
+      .price-boxes {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
   </style>
 </head>
 <body>
   <div class="overlay">
     <h1>Karwan e Moula Raza Tours</h1>
     <h2>Iraq • Iran • Syria • Umrah • Zyarat Packages</h2>
+
     <div class="coming">WEBSITE COMING SOON</div>
 
     <div class="facilities">
